@@ -1,0 +1,13 @@
+{
+  "development": {
+    "storage": "./dev.sqlite3",
+    "dialect": "sqlite"
+  },
+  "production": {
+    "username": "erigydwy",
+    "password": "UeOZaXghKpjLmktCgbkQgqTrut1FVxiQ",
+    "database": "erigydwy",
+    "host": "floppy.db.elephantsql.com",
+    "dialect": "postgres"
+  }
+}
