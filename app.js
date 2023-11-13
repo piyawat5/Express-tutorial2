@@ -11,6 +11,6 @@ app.use(require("./src/routes/routes"));
 
 //port
 const port = 3500;
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
   console.log(`Listening on port: ${port}`);
 });
