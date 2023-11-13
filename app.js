@@ -5,6 +5,7 @@ const app = express();
 //Middlewares
 app.use(express.json());
 app.use(cors());
+app.use("/image", express.static("./images"));
 
 //Routes api
 app.use(require("./src/routes/routes"));
