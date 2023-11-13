@@ -1,7 +1,11 @@
 {
   "development": {
-    "storage": "./dev.sqlite3",
-    "dialect": "sqlite"
+    "username": "ud44w24inpwabsvu",
+    "password": "fhJlyKBJtoVIWrsBJCKT",
+    "database": "by5zp2lbxswxdyumrzug",
+    "host": "by5zp2lbxswxdyumrzug-mysql.services.clever-cloud.com",
+    "dialect": "mysql",
+    "port": "3306"
   },
   "production": {
     "username": "erigydwy",
