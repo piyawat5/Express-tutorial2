@@ -3,12 +3,18 @@ const productControllers = require("../controllers/product.controller");
 
 router.get("/", productControllers.getProducts);
 
-router.get("/:id", productControllers.getProductById);
+router.get("/total", productControllers.getProductByTotal);
 
-router.post("/create", productControllers.postProduct);
+router.get("/search", productControllers.getProductsBySearch);
 
-router.put("/edit/:id", productControllers.putProduct);
+router.get("/price", productControllers.getProductByPrice);
 
-router.delete("/delete/:id", productControllers.deleteProduct);
+router.get("/:id", productControllers.getProduct);
+
+router.post("/", productControllers.addProduct);
+
+router.put("/:id", productControllers.editProduct);
+
+router.delete("/:id", productControllers.deleteProduct);
 
 module.exports = router;
