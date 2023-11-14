@@ -18,10 +18,9 @@ exports.findByPrice = async (query) => {
 
 exports.findById = async (id) => await productRepositories.findById(id);
 
-exports.add = async (product, file) =>
+exports.add = async (product) =>
   await productRepositories.postProduct({
     ...product,
-    image: file ? file.filename : "",
   });
 
 exports.edit = async (id, product, file) => {

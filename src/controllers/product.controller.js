@@ -1,7 +1,6 @@
 const productServices = require("../services/product.service");
-const multer = require("multer");
-const multerConfig = require("../configs/multer");
-const upload = multer(multerConfig.config).single(multerConfig.keyUpload);
+const cloudinary = require("../utils/cloudinary");
+const upload = require("../configs/multer");
 
 exports.getProducts = async (req, res) => {
   res.json(await productServices.getProducts());
@@ -32,33 +31,35 @@ exports.getProduct = async (req, res) => {
   result ? res.json(result) : res.status(404).json(null);
 };
 
-exports.addProduct = (req, res) => {
-  upload(req, res, async (error) => {
-    if (error) {
-      console.log(`error: ${JSON.stringify(error)}`);
-      return res.status(500).json({ message: error.message });
-    }
-    return res.status(201).json(await productServices.add(req.body, req.file));
-  });
+exports.addProduct = async (req, res) => {
+  // upload(req, res, async (error) => {
+  //   if (error) {
+  //     console.log(`error: ${JSON.stringify(error)}`);
+  //     return res.status(500).json({ message: error.message });
+  //   }
+  //   return res.status(201).json(await productServices.add(req.body, req.file));
+  // });
+
+  return res.status(201).json(await productServices.add(req.body));
 };
 
 exports.editProduct = (req, res) => {
-  upload(req, res, async (error) => {
-    if (error) {
-      console.log(`error: ${JSON.stringify(error)}`);
-      return res.status(500).json({ message: error.message });
-    }
-    const result = await productServices.edit(
-      req.params.id,
-      req.body,
-      req.file
-    );
-    if (result) {
-      res.json(result);
-    } else {
-      res.status(404).json({});
-    }
-  });
+  // upload(req, res, async (error) => {
+  //   if (error) {
+  //     console.log(`error: ${JSON.stringify(error)}`);
+  //     return res.status(500).json({ message: error.message });
+  //   }
+  //   const result = await productServices.edit(
+  //     req.params.id,
+  //     req.body,
+  //     req.file
+  //   );
+  //   if (result) {
+  //     res.json(result);
+  //   } else {
+  //     res.status(404).json({});
+  //   }
+  // });
 };
 
 exports.deleteProduct = async (req, res) => {
